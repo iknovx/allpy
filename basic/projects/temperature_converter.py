@@ -1,33 +1,33 @@
+
+
 class TemperatureConverter:
 
     def __init__(self, temperature, unit):
         self.temperature = temperature
-        self.unit = unit
+        self.unit = unit.upper()
 
-    def celsius_to_fahrenheit(self):
-        return (self.temperature * 9/5) + 32
+    def to_celsius(self):
+        if self.unit == "C":
+            return self.temperature
+        elif self.unit == "F":
+            return (self.temperature - 32) * 5/9
+        elif self.unit == "K":
+            return self.temperature - 273.15
 
-    def fahrenheit_to_celsius(self):
-        return (self.temperature - 32) * 5/9
+    def to_fahrenheit(self):
+        celsius = self.to_celsius()
+        return (celsius * 9/5) + 32
 
-    def celsius_to_kelvin(self):
-        return self.temperature + 273.15
-
-    def kelvin_to_celsius(self):
-        return self.temperature - 273.15
-
-    def fahrenheit_to_kelvin(self):
-        return (self.temperature - 32) * 5/9 + 273.15
-
-    def kelvin_to_fahrenheit(self):
-        return (self.temperature - 273.15) * 9/5 + 32
+    def to_kelvin(self):
+        celsius = self.to_celsius()
+        return celsius + 273.15
 
 
 def convert():
 
     print("Welcome to the temperature converter!")
     print("You can convert between Celsius, Fahrenheit, and Kelvin.")
-    print("Enter 'Q' to quit the converter.")
+    print("Enter 'Q' to quit.")
 
     while True:
 
@@ -41,21 +41,19 @@ def convert():
             print("Invalid unit. Please enter C, F, K or Q.")
             continue
 
-        temperature = float(input("Enter the temperature: "))
+        try:
+            temperature = float(input("Enter the temperature: "))
+        except ValueError:
+            print("Please enter a valid number.")
+            continue
 
         temp = TemperatureConverter(temperature, unit)
 
-        if unit == "C":
-            print(f"{temperature}°C = {temp.celsius_to_fahrenheit():.2f}°F")
-            print(f"{temperature}°C = {temp.celsius_to_kelvin():.2f}K")
-
-        elif unit == "F":
-            print(f"{temperature}°F = {temp.fahrenheit_to_celsius():.2f}°C")
-            print(f"{temperature}°F = {temp.fahrenheit_to_kelvin():.2f}K")
-
-        elif unit == "K":
-            print(f"{temperature}K = {temp.kelvin_to_celsius():.2f}°C")
-            print(f"{temperature}K = {temp.kelvin_to_fahrenheit():.2f}°F")
+        print(f"\nInput: {temperature}°{unit}")
+        print(f"Celsius: {temp.to_celsius():.2f}°C")
+        print(f"Fahrenheit: {temp.to_fahrenheit():.2f}°F")
+        print(f"Kelvin: {temp.to_kelvin():.2f}K")
 
 
-convert()
+if __name__ == "__main__":
+    convert()
