@@ -1,6 +1,9 @@
 {
     "name": "admin",
     "password": "admin",
-    "email": "admin"
+    "email": "admin",
+    "name1": "muiafr",
+    "password1": "muiafr",
+    "email1": "muiafr"
 
 }

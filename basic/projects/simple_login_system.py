@@ -3,27 +3,25 @@ import json
 with open('basic/projects/jsons/login.json', 'r') as f:
     login_data = json.load(f)
 
-def login(username:str , password:str, email:str) -> bool:
-   username = input("Enter your username: ")
-   password = input("Enter your password: ")
-   email = input("Enter your email: ")
-   
-   while username != login_data['name'] or password != login_data['password'] or email != login_data['email']:
-       print("Invalid username or password. Please try again.")
-       username = input("Enter your username: ")
-       password = input("Enter your password: ")
-       email = input("Enter your email: ")
-       if username == login_data['name'] and password == login_data['password'] and email == login_data['email']:
-           print("Login successful!")
-           return True
-       elif username != login_data['name'] or password != login_data['password'] or email != login_data['email']:
-            print("Invalid username or password or email. Please try again.")
-       else:
+def login():
+    while True:
+        username = input("Enter your username: ")
+        password = input("Enter your password: ")
+        email = input("Enter your email: ")
+
+        if (
+            username == login_data['name'] or username == login_data['name1']
+            and password == login_data['password'] or password == login_data['password1']
+            and email == login_data['email'] or email == login_data['email1']
+        ):
             print("Login successful!")
+
+            with open('log.txt', 'a') as f:
+                f.write(f"User {username} logged in successfully.\n")
+
             return True
-    
-    
-    
-    
+
+        print("Invalid username, password or email. Please try again.")
+
 if __name__ == "__main__":
-    login("admin", "admin", "admin")
+    login()
