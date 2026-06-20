@@ -12,12 +12,3 @@ for i in range(10):
     i += res
     print(i)
 
-
-
-import time
-
-x: int = int(input("Enter a number to countdown from: "))
-
-for i in range(x, 0-1, -1):
-    print(i)
-    time.sleep(1)

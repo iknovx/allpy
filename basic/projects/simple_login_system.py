@@ -16,7 +16,7 @@ def login():
         ):
             print("Login successful!")
 
-            with open('log.txt', 'a') as f:
+            with open('basic/projects/log.txt', 'a') as f:
                 f.write(f"User {username} logged in successfully.\n")
 
             return True
