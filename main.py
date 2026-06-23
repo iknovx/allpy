@@ -2,12 +2,6 @@ from basics_py.projects.calculator import calculator
 from basics_py.projects.simple_timer import timer
 
 
-
-
-
-
-
-
 if __name__ == "__main__":
     print("Hello and welcome to menu")
     while True:
