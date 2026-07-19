@@ -12,3 +12,5 @@ def timer():
     
     with open("basics_py/projects/logs/countdown.txt", "w") as f:
         f.write(f'Countdown from {x} completed.')
+        
+timer()
