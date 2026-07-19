@@ -46,4 +46,18 @@ def quiz():
     print("Your answers:")
     for i, guess in enumerate(guesses):
         print(f"Question {i + 1}: {guess}")
+
+    print("Correct answers:")
+    for i, item in enumerate(quiz):
+        print(f"Question {i + 1}: {item['answer']}")
+
+    with open("quiz_results.txt", "w") as f:
+        f.write(f"Score: {score}/{len(quiz)}\n")
+        f.write("Your answers:\n")
+        for i, guess in enumerate(guesses):
+            f.write(f"Question {i + 1}: {guess}\n")
+        f.write("Correct answers:\n")
+        for i, item in enumerate(quiz):
+            f.write(f"Question {i + 1}: {item['answer']}\n")
+
 quiz()
