@@ -1,0 +1,6 @@
+--- Receipt ---
+soda x1: $1.99
+Total = $1.99
+--- Receipt ---
+soda x1: $1.99
+Total = $1.99

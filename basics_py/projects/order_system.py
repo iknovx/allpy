@@ -43,7 +43,7 @@ def take_order(menu):
                 continue
             break
 
-        if add_more == "no":
+        if add_more in ("no", "n"):
             return user_order
 
 
@@ -67,9 +67,10 @@ def main():
     print("\n--- Receipt ---")
     print("\n".join(receipt_lines))
 
-    with open("receipt.txt", "w") as f:
+    with open("basics_py/projects/logs/receipt.txt", "a") as f:
         f.write("--- Receipt ---\n")
         f.write("\n".join(receipt_lines) + "\n")
+        
 
 
 if __name__ == "__main__":

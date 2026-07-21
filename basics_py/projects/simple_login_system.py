@@ -1,6 +1,6 @@
 import json
 
-with open('basic/projects/jsons/login.json', 'r') as f:
+with open('basics_py/projects/jsons/login.json', 'r') as f:
     login_data = json.load(f)
 
 def login():
@@ -16,7 +16,7 @@ def login():
         ):
             print("Login successful!")
 
-            with open('basic/projects/logs/log.txt', 'a') as f:
+            with open('basics_py/projects/logs/log.txt', 'a') as f:
                 f.write(f"User {username} logged in successfully.\n")
 
             return True
